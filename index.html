@@ -4,15 +4,21 @@
     <title>zerong.pw</title>
 </head>
 
-<body bgcolor="black" onselectstart="return false">
+<body>
     
     <!--<div class="pswp__preloader__icn">
         <div class="pswp__preloader__cut">
             <div class="pswp__preloader__donut"></div>
         </div>
     </div>-->
-
-
+    <video autoplay muted loop id="myVideo">
+        <source src="ddddd.mp4" type="video/mp4">
+      </video>
+      
+      <audio id="fasza" autoplay>
+        <source src="dd.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <p>zerong.pw</p>
 
 
@@ -66,11 +72,11 @@
         p {
             margin-top: 25%;
             opacity: 0;
-            font-size: 2vh;
+            font-size: 5vh;
             font-weight: 400;
             font-family: sans-serif;
             text-align: center;
-            color: dodgerblue;
+            color: hsl(76, 100%, 56%);
             -webkit-animation: fadein 2s linear infinite;
             /* Safari, Chrome and Opera > 12.1 */
             -moz-animation: fadein 2s linear infinite;
@@ -79,10 +85,10 @@
             /* Internet Explorer */
             -o-animation: fadein 2s linear infinite;
             /* Opera < 12.1 */
-            animation: fadein 2s linear infinite;
+            animation: fadein 1s linear infinite;
             animation-delay: 1s;
         }
-d
+
         @keyframes fadein {
             0% {
                 opacity: 0;
@@ -174,7 +180,13 @@ d
 
 
 
-
+        #myVideo {
+            position: fixed;
+            right: -200;
+            bottom: -200;
+            min-width: 125%;
+            min-height: 125%;
+        }
 
 
         .pswp__preloader__icn {
