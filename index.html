@@ -2,6 +2,7 @@
 
 <head>
     <title>zerong.pw</title>
+    <script src="https://kit.fontawesome.com/a81b977c05.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -11,15 +12,16 @@
             <div class="pswp__preloader__donut"></div>
         </div>
     </div>-->
+    <div class="divide"></div>
     <video autoplay muted loop id="myVideo">
         <source src="ddddd.mp4" type="video/mp4">
       </video>
       
-      <iframe class="audio" loop autoplay="autoplay" controls style = "display:none;">
-        <source src="1.ogg" type="audio/ogg"/>
-        <source src="dd.mp3" type="audio/mpeg"/>
-    </iframe>
-    <p>zerong.pw</p>
+      <audio loop src="https://zerong.pw/dd.mp3"></audio>
+      <button id="button">
+        <i class="fas fa-volume-up"></i>
+      </button>
+    <!-- <p>zerong.pw</p> -->
 
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -70,6 +72,64 @@
             padding: 0px;
         }
 
+        .divide {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 30px;
+            background: #1e5799;
+            background: -moz-linear-gradient(left, #1e5799 0%, #f300ff 50%, #e0ff00 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1e5799), color-stop(50%,#f300ff), color-stop(100%,#e0ff00));
+            background: -webkit-linear-gradient(left, #1e5799 0%,#f300ff 50%,#e0ff00 100%);
+            background: -o-linear-gradient(left, #1e5799 0%,#f300ff 50%,#e0ff00 100%);
+            background: -ms-linear-gradient(left, #1e5799 0%,#f300ff 50%,#e0ff00 100%);
+            background: linear-gradient(to right, #1e5799 0%,#f300ff 50%,#e0ff00 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#e0ff00',GradientType=1 );
+            height: 3px;
+            border-bottom: 1px solid #000;
+        }
+        audio {
+            display: none;
+        }
+        button {
+            font-size: 16px;
+            color: #eee;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            padding: 15px;
+            border: none;
+            border-radius: 2px;
+            outline: none;
+            background: rgba(115, 67, 167, 0);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.0);
+            opacity: 1;
+            cursor: pointer;
+            transition: all 0.4s ease-out;
+            -webkit-animation: fasza 2s linear infinite;
+            /* Safari, Chrome and Opera > 12.1 */
+            -moz-animation: fasza 2s linear infinite;
+            /* Firefox < 16 */
+            -ms-animation: fasza 2s linear infinite;
+            /* Internet Explorer */
+            -o-animation: fasza 2s linear infinite;
+            /* Opera < 12.1 */
+            animation: fasza 1s linear infinite;
+            /* animation-delay: 1s; */
+        }
+
+        button.fade:hover {
+            opacity: 1;
+        }
+
+        .fade {
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            transform: translate(0, 0);
+        }
+
         p {
             margin-top: 25%;
             opacity: 0;
@@ -89,6 +149,25 @@
             animation: fadein 1s linear infinite;
             animation-delay: 1s;
         }
+
+        @keyframes fasza {
+            0% {
+                color: rgb(255, 0, 0);
+            }
+            25% {
+                color: rgb(0, 255, 0);
+            }
+            75% {
+                color: rgb(0, 0, 255);
+            }
+            75% {
+                color: rgb(225, 0, 255);
+            }
+            100% {
+                color: rgb(255, 0, 0);
+            }
+        }
+
 
         @keyframes fadein {
             0% {
@@ -306,6 +385,29 @@
         }
 
     </style>
+
+<script>
+const button = document.querySelector("#button");
+const icon = document.querySelector("#button > i");
+const audio = document.querySelector("audio");
+
+button.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.volume = 0.2;
+    audio.play();
+    icon.classList.remove('fa-volume-up');
+    icon.classList.add('fa-volume-mute');
+    
+  } else {
+    audio.pause();
+    icon.classList.remove('fa-volume-mute');
+    icon.classList.add('fa-volume-up');
+  }
+  button.classList.add("fade");
+});
+
+
+</script>
 
 </body>
 
