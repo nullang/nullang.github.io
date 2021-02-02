@@ -200,7 +200,9 @@
 <script type="text/javascript">
  
      
-  var helper = Math.random() < .5 ? "Clippy" : "Rover";
+ var helper1 = Math.random() < .5 ? "Clippy" : "Rover";
+      var helper2 = Math.random() < .5 ? "Genius" : "Merlin";
+      var helper = Math.random() < .5 ? helper1 : helper2;
   clippy.load(helper, function(agent) {
       agent.show();
       
